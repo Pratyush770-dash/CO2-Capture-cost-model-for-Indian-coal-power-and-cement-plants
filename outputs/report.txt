@@ -1,0 +1,62 @@
+==========================================================================
+CO2 CAPTURE COST MODEL - INDIAN COAL POWER AND CEMENT (30 wt% MEA, 90% capture)
+==========================================================================
+
+A. SOLVENT AND ABSORBER DESIGN (coal case | cement case)
+  Lean / rich loading (mol/mol):      0.220 / 0.432   |  0.220 / 0.438
+  Solvent circulation (kg/kg CO2):    21.8          |  21.2
+  Absorber packing height (m):        16.3          |  15.3
+  Absorber trains x diameter (m):     4 x 10.7       |  2 x 9.4
+
+B. SOLVENT REGENERATION ENERGY (GJ per t CO2)
+  desorption         1.93          |  1.93
+  sensible           0.81          |  0.79
+  stripping steam    0.88          |  0.88
+  TOTAL reboiler     3.62          |  3.60
+  CO2 compression (kWh/t): 105
+
+C. COAL PLANT (660 MW supercritical unit, PLF 80%)
+  Net output: 660 MW -> 485 MW  (loss 26.5%)
+    steam extraction 99 MW, CO2 compression 58 MW, auxiliaries 18 MW
+  Net efficiency (GCV): 35.8% -> 26.3%  (penalty 9.5 points)
+  CO2 captured: 3.85 Mt/yr; emission intensity 0.926 -> 0.126 t/MWh
+  Capture capex: Rs 5436 crore (Rs 82362 per kW of reference net capacity)
+  Electricity cost (LCOE): Rs 4.85 -> Rs 9.30 per kWh  (+Rs 4.45, +92%)
+  Cost per tonne CO2 CAPTURED: Rs 3439 (USD 39.1)
+      capex                    Rs 1554
+      fixed om                 Rs 564
+      solvent and chemicals    Rs 270
+      energy penalty           Rs 1051
+  Cost per tonne CO2 AVOIDED:  Rs 5567 (USD 63.3)
+
+D. CEMENT PLANT (1.98 Mt clinker/yr, 2.83 Mt cement/yr)
+  Kiln CO2: 0.805 t/t clinker, 1.59 Mt/yr; steam boiler adds 0.90 Mt/yr (also captured)
+  CO2 captured 2.24 Mt/yr; net CO2 avoided 1.13 Mt/yr (71% of kiln emission)
+  Steam boiler 333 MWth; electricity 37.7 MW (133 kWh/t CO2)
+  Capture capex: Rs 3350 crore
+  Cost per tonne CO2 CAPTURED: Rs 5054 (USD 57.4)
+      capex                    Rs 1645
+      fixed om                 Rs 597
+      solvent and chemicals    Rs 270
+      electricity              Rs 932
+      steam fuel               Rs 1609
+  Cost per tonne CO2 AVOIDED:  Rs 10038 (USD 114.1)
+  Added cost: Rs 5726 per t clinker, Rs 4008 per t cement (Rs 200 per 50 kg bag)
+
+E. COMPARISON WITH LITERATURE RANGES
+  Reboiler duty 3.62 GJ/t vs 3.5-4.0: inside literature range
+  Efficiency penalty 9.5 pts vs 8-12: inside literature range
+  Compression 105 kWh/t vs 90-120: inside literature range
+  Coal avoided cost USD 63/t vs typical global USD 60-90/t
+  Earlier Indian case studies (Energy Procedia 54) report +Rs 2.2-2.6/kWh and Rs 2600-3200/t avoided.
+  Our Rs/kWh and Rs/t values are higher than those older figures. Some of the gap is
+  probably cost escalation since then, but that study's inputs are not reproduced here,
+  so treat the gap as unexplained and compare in USD terms (global range above).
+
+F. KEY ASSUMPTIONS (edit in config.py)
+  WACC 10%, life 25 yr, coal Rs 5000/t, GCV 3800 kcal/kg, USD/INR 88
+  Capex island ref USD 560 M at 400 t/h, location factor 0.45, TCI factor 1.15
+  Transport and storage of CO2 are NOT included (capture + compression only).
+  Capex is scaled from literature reference costs, so it is the largest uncertainty;
+  see the tornado charts. The absorber model is a short-cut with a lumped KGa, not
+  the calibrated rate-based model.
